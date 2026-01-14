@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Taekwondo Bulls</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@300;400;600;700&display=swap">
+  <style>
+    :root{
+      --bg:#0b0b0d;
+      --ink:#f4f4f6;
+      --muted:#b6b6c2;
+      --line:rgba(255,255,255,.08);
+      --red:#e10613;
+      --gold:#c8a45a;
+      --card:#14141b;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Source Sans 3", Arial, sans-serif;
+    }
+    .texture{
+      background:
+        repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 2px, transparent 2px 8px),
+        radial-gradient(900px 500px at 15% -10%, rgba(225,6,19,.35), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(200,164,90,.18), transparent 60%),
+        var(--bg);
+    }
+    .hero{
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(135deg, #111116, #0c0c12);
+    }
+    .brand-title{
+      font-family: "Bebas Neue", Impact, sans-serif;
+      letter-spacing: .08em;
+      font-size: 40px;
+    }
+    .badge{
+      border: 1px solid rgba(200,164,90,.5);
+      color: var(--gold);
+      letter-spacing: .25em;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    .muted{ color: var(--muted); }
+    .accent{ background: var(--red); color: #fff; }
+    .ghost{
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: transparent;
+    }
+    .w3-card{ border-radius: 22px; }
+    .w3-button{ border-radius: 999px; }
+    .logo{
+      width: 170px;
+      height: 170px;
+      object-fit: contain;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    }
+    .card-dark{
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: var(--ink);
+    }
+    .hero-grid{
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .hero-title{
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 56px;
+      line-height: .95;
+      letter-spacing: .05em;
+      margin: 8px 0 10px;
+    }
+    .section-title{
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-size: 36px;
+      letter-spacing: .06em;
+      margin: 0;
+    }
+    .stat{
+      border: 1px solid var(--line);
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.02);
+    }
+    .stat .k{ font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; }
+    .stat .v{ font-size: 26px; font-weight: 700; }
+    .divider{
+      height: 1px;
+      background: var(--line);
+      margin: 18px 0;
+    }
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.02);
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+    .reveal{
+      opacity: 0;
+      transform: translateY(16px);
+      animation: rise .7s ease forwards;
+    }
+    .reveal.delay-1{ animation-delay: .1s; }
+    .reveal.delay-2{ animation-delay: .2s; }
+    .reveal.delay-3{ animation-delay: .3s; }
+    @keyframes rise{
+      to{ opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .logo{ width: 130px; height: 130px; }
+      .hero-title{ font-size: 44px; }
+    }
+  </style>
+</head>
+<body class="texture">
+  <header class="hero">
+    <div class="w3-bar w3-padding w3-container" style="max-width:1200px; margin:0 auto;">
+      <div class="w3-bar-item">
+        <img src="assets/logo-taekwondo-bulls.png" alt="Taekwondo Bulls logo" class="logo">
+      </div>
+      <div class="w3-bar-item">
+        <div class="brand-title">TAEKWONDO BULLS</div>
+        <div class="badge">ACADEMIA</div>
+      </div>
+      <div class="w3-bar-item w3-right w3-hide-small">
+        <a class="w3-button ghost w3-text-white" href="#contacto">Agenda una clase</a>
+        <a class="w3-button ghost w3-text-white w3-margin-left" href="https://tu-app.com">Acceso alumnos/profesores/padres</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="w3-bar w3-black w3-border-top w3-border-dark-gray">
+    <div class="w3-bar" style="max-width:1200px; margin:0 auto;">
+      <a href="#inicio" class="w3-bar-item w3-button w3-mobile">Inicio</a>
+      <a href="#significado" class="w3-bar-item w3-button w3-mobile">Significado</a>
+      <a href="#componentes" class="w3-bar-item w3-button w3-mobile">Componentes</a>
+      <a href="#valores" class="w3-bar-item w3-button w3-mobile">Valores</a>
+      <a href="#profesores" class="w3-bar-item w3-button w3-mobile">Profesores</a>
+      <a href="#horarios" class="w3-bar-item w3-button w3-mobile">Horarios</a>
+      <a href="#contacto" class="w3-bar-item w3-button w3-mobile">Contacto</a>
+    </div>
+  </nav>
+
+  <main class="w3-container" style="max-width:1200px; margin:0 auto;">
+    <section id="inicio" class="w3-padding-32">
+      <div class="hero-grid">
+        <div class="reveal">
+          <div class="badge">Camino y disciplina</div>
+          <div class="hero-title">El camino del pie y el puño</div>
+          <p class="muted">
+            Taekwondo es un arte marcial y deporte de origen coreano que combina patadas
+            rápidas y potentes con disciplina mental y valores formativos.
+          </p>
+          <div class="w3-margin-top">
+            <a class="w3-button accent" href="#contacto">Inscr?bete</a>
+          </div>
+          <div class="w3-row-padding w3-margin-top">
+            <div class="w3-third w3-margin-bottom">
+              <div class="stat">
+                <div class="k">T?cnica</div>
+                <div class="v">Precisi?n</div>
+              </div>
+            </div>
+            <div class="w3-third w3-margin-bottom">
+              <div class="stat">
+                <div class="k">Disciplina</div>
+                <div class="v">Constancia</div>
+              </div>
+            </div>
+            <div class="w3-third w3-margin-bottom">
+              <div class="stat">
+                <div class="k">Valores</div>
+                <div class="v">Respeto</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal delay-2">
+          <div class="w3-card card-dark w3-padding-24">
+            <div class="section-title">Qu? significa</div>
+            <p class="muted">Tae (pie), Kwon (puño), Do (camino de vida).</p>
+            <div class="divider"></div>
+            <div class="pill">Tae - pie o patada</div>
+            <div class="pill" style="margin-left:8px;">Kwon - puño o golpe</div>
+            <div class="pill" style="margin-left:8px;">Do - filosof?a de vida</div>
+            <div class="divider"></div>
+            <p class="muted">
+              El Taekwondo forma cuerpo, mente y car?cter. Es deporte ol?mpico desde el 2000.
+            </p>
+            <a class="w3-button accent w3-block w3-margin-top" href="#valores">Conocer valores</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="significado" class="w3-padding-32">
+      <div class="section-title">El significado del Taekwondo</div>
+      <p class="muted">
+        No es solo pelear. Es una formación integral: física, mental y emocional.
+      </p>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-third w3-margin-bottom reveal delay-1">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Origen coreano</div>
+            <p class="muted">Tradici?n marcial con enfoque moderno y ol?mpico.</p>
+          </div>
+        </div>
+        <div class="w3-third w3-margin-bottom reveal delay-2">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Arte y deporte</div>
+            <p class="muted">Técnica, estrategia y formación del carácter.</p>
+          </div>
+        </div>
+        <div class="w3-third w3-margin-bottom reveal delay-3">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Para todas las edades</div>
+            <p class="muted">Desde niños hasta adultos mayores.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="componentes" class="w3-padding-32">
+      <div class="section-title">Qu? abarca el Taekwondo</div>
+      <p class="muted">Componentes técnicos, tácticos y de formación.</p>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-half w3-margin-bottom reveal delay-1">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Combate (Kyorugi)</div>
+            <p class="muted">Enfrentamiento 1 vs 1 con reglas y protección.</p>
+          </div>
+        </div>
+        <div class="w3-half w3-margin-bottom reveal delay-2">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Formas (Poomsae)</div>
+            <p class="muted">Secuencias técnicas para control y concentración.</p>
+          </div>
+        </div>
+        <div class="w3-half w3-margin-bottom reveal delay-1">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Rompimientos (Kyokpa)</div>
+            <p class="muted">Aplicación de fuerza y precisión.</p>
+          </div>
+        </div>
+        <div class="w3-half w3-margin-bottom reveal delay-2">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Defensa personal (Hosinsul)</div>
+            <p class="muted">Respuestas ante situaciones reales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="valores" class="w3-padding-32">
+      <div class="section-title">Disciplina y valores</div>
+      <p class="muted">
+        Respeto, perseverancia, autocontrol y cortesía. El Taekwondo
+        ense?a car?cter y compromiso.
+      </p>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-half w3-margin-bottom reveal delay-1">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Formaci?n integral</div>
+            <p class="muted">F?sica, mental y emocional. Se entrena con prop?sito.</p>
+          </div>
+        </div>
+        <div class="w3-half w3-margin-bottom reveal delay-2">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Compromiso familiar</div>
+            <p class="muted">Guiar con amor, paciencia y ejemplo.</p>
+          </div>
+        </div>
+        <div class="w3-half w3-margin-bottom reveal delay-1">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">No rendirse</div>
+            <p class="muted">El verdadero ?xito es levantarse una y otra vez.</p>
+          </div>
+        </div>
+        <div class="w3-half w3-margin-bottom reveal delay-2">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Mensaje a padres</div>
+            <p class="muted">
+              Acompa?arlos en el proceso enseña constancia. No se trata de obligar,
+              sino de guiar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="profesores" class="w3-padding-32">
+      <div class="section-title">Profesores</div>
+      <p class="muted">Equipo con experiencia técnica y enfoque formativo.</p>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-third w3-margin-bottom reveal delay-1">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Steve Badilla</div>
+            <p class="muted">Cintur?n negro - sede San Rafael.</p>
+          </div>
+        </div>
+        <div class="w3-third w3-margin-bottom reveal delay-2">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Nelson S?nchez</div>
+            <p class="muted">Cintur?n negro - sede San Antonio.</p>
+          </div>
+        </div>
+        <div class="w3-third w3-margin-bottom reveal delay-3">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Equipo formativo</div>
+            <p class="muted">T?cnica, poomsae y combate con enfoque integral.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="horarios" class="w3-padding-32">
+      <div class="section-title">Horarios y sedes</div>
+      <p class="muted">Clases por sede con grupos por edad.</p>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-half w3-margin-bottom reveal delay-1">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Sede San Rafael</div>
+            <p class="muted">Martes y jueves</p>
+            <div class="divider"></div>
+            <p class="muted">6:00 a 7:00 pm - hasta 10 años</p>
+            <p class="muted">7:00 a 8:00 pm - mayores de 10 años</p>
+          </div>
+        </div>
+        <div class="w3-half w3-margin-bottom reveal delay-2">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Sede San Antonio</div>
+            <p class="muted">Lunes y miércoles</p>
+            <div class="divider"></div>
+            <p class="muted">6:00 a 7:00 pm - hasta 10 años</p>
+            <p class="muted">7:00 a 8:00 pm - mayores de 10 años</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="w3-padding-32">
+      <div class="section-title">Contacto</div>
+      <p class="muted">Agenda una clase o solicita información.</p>
+      <div class="w3-row-padding w3-margin-top">
+        <div class="w3-half w3-margin-bottom reveal delay-1">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">WhatsApp</div>
+            <p class="muted">+52 000 000 0000</p>
+          </div>
+        </div>
+        <div class="w3-half w3-margin-bottom reveal delay-2">
+          <div class="w3-card card-dark w3-padding-16">
+            <div class="w3-bold">Direcci?n</div>
+            <p class="muted">Tu dirección aquí, ciudad.</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-margin-top">
+        <a class="w3-button ghost w3-text-white" href="https://instagram.com">Instagram</a>
+        <a class="w3-button ghost w3-text-white w3-margin-left" href="https://facebook.com">Facebook</a>
+      </div>
+      <div class="w3-margin-top">
+        <a class="w3-button accent" href="#inicio">Volver arriba</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w3-container w3-padding-16 w3-center muted">
+    <div>Taekwondo Bulls</div>
+    <div>Design by DeportIvA</div>
+  </footer>
+</body>
+</html>
